@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--   <link rel="stylesheet" href=".css/bootstrap-slider.css"></script>
+  <link href="js/bootstrap-slider.js"></script> -->
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Friend Survey</h1>
+      <h3>Fill out the survey to find your new friend!</h3>
+      <hr>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span></button></a>
+      <a href="/data/friends"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-user"></span> View All Friends</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>On a scale from 1 to 5, rate yourself between the following categories:</strong></h3>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal" id="addFriend" method="POST" role="form">
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q1" >Traditional (1) vs Contemporary (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q1" required/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q2">Indoor (1) vs Outdoor (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q2" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q3">Introvert (1) vs Extrovert (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q3" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q4">Drama Movie (1) vs Action Movie (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q4" required/> 
+                </div>
+              </div> 
+              
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q5">Vegetarian (1) vs Carnivore (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q5" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q6">Sedentary (1) vs Athlete (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q6" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q7">Literature (1) vs STEM (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5"  class="form-control" id="q7" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q8">Liberal (1) vs Conservative (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q8" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+               <label class="col-xs-6 control-label" for="q9">Non-technical (1) vs Technical (5)</label>
+               <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q9" required/> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-6 control-label" for="q10">Rural (1) vs City (5)</label>
+                <div class="col-xs-2">
+                <input type="number" min="1" max="5" class="form-control" id="q10" required/>
+               </div> 
+              </div>
+
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="name">Name</label>
+                <div class="col-sm-7">
+                <input type="text" class="form-control" maxlength="50" id="name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="link">Photo Link</label>
+                <div class="col-sm-7">
+                <input type="url" class="form-control" maxlength="100" id="link">
+                </div>
+              </div>
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-chevron-right"></span> Find Your Friend!</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Your Friends</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <div class="modal-body">
+      <div class="container-fluid" >
+        <div class="row" id="modalContent">
+      
+        </div>
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+ 
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+  //   $('#ex1').slider({
+  // formatter: function(value) {
+  //   return 'Current value: ' + value;
+  //   }
+  //   });
+
+
+
+
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newFriend = {
+        name: $("#name").val().trim(),
+        photo: $("#link").val().trim(),
+        scores:[
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+
+      };
+
+  //console.log(newFriend);
+      // Question: What does this code do??
+      $.post("/data/friends", newFriend)
+      .done(function(data){
+        //console.log(data);
+      var modalContent =$("#modalContent");
+        if (data){
+
+
+          var newDiv="";
+          modalContent.empty();
+          console.log(data);
+          $.each(data, function(key, value){
+            var friend = key;
+            var name = value.name;
+            var photo = value.photo;
+            console.log(name);
+          newDiv = $('<div class="panel panel-default col-xs-3"><div class="panel-body"><img class="img img-responsive" src="'+ photo +'" /></div><div class="panel-footer">'+name+'</div></div>');
+
+          modalContent.append(newDiv);
+
+          });
+          $("#addFriend").each(function(){
+                  this.reset();
+              });
+        } else {
+          console.log("there is something wrong");
+          var newDiv="";
+          modalContent.empty();
+          newDiv = $('<div ><h3>Please enter numbers 0 through 5.</div>');
+
+          modalContent.append(newDiv);
+
+        };
+        
+          $("#exampleModalLong").modal('toggle');
+
+        // alert("Processing your results...");
+      });
+
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- <div class="panel panel-default col-xs-3">
+  <div class="panel-body">
+    <img class="img img-responsive" src="'+ photo +'" />
+  </div>
+  <div class="panel-footer">'+name+'</div>
+</div> -->
