@@ -1,7 +1,7 @@
 var express = require("express");
 // var bodyParser = require("body-parser");
 var path = require("path");
-
+var favicon = require('serve-favicon');
 // var app = express();
 
 
@@ -20,7 +20,10 @@ app.get("/survey", function(req, res){
 	res.sendFile(path.join(__dirname, "/../public/survey.html"));
 });
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(favicon(__dirname + '/../public/favicon.ico'));
+
+app.use('/css', express.static(path.join(__dirname, '/../public/css')))
+
 
 //static routing for express
 
