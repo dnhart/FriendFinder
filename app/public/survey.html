@@ -8,8 +8,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./css/bootstrap-slider.css"></script>
-  <link href="./js/bootstrap-slider.js"></script>
+<!--   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+  <link rel="stylesheet" href="./css/slider.css"></script>
+<!--   <link href="./js/bootstrap-slider.js"></script> -->
 </head>
 <body>
 
@@ -32,75 +34,122 @@
           <div class="panel-body">
             <form class="form-horizontal" id="addFriend" method="POST" role="form">
 
-              <div class="form-group">
+<!--               <div class="form-group">
                 <label class="col-xs-6 control-label" for="q1" >Traditional (1) vs Contemporary (5)</label>
                 <div class="col-xs-2">
+
                 <input type="number" min="1" max="5" class="form-control" id="q1" required/>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q2">Indoor (1) vs Outdoor (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q2" required/> 
-                </div>
-              </div>
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q1" >Traditional (1) vs Contemporary (5)</label>
+         </div>
+        <div class="col-xs-8">
+          <input type="range" name="q1" data-show-value="true" id="q1" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q3">Introvert (1) vs Extrovert (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q3" required/> 
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q4">Drama Movie (1) vs Action Movie (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q4" required/> 
-                </div>
-              </div> 
+
+ <!--      </div> -->
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q2">Indoor (1) vs Outdoor (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q2" id="q2" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q3">Introvert (1) vs Extrovert (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q3" id="q3" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q4">Drama Movie (1) vs Action Movie (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q4" id="q4" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
               
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q5">Vegetarian (1) vs Carnivore (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q5" required/> 
-                </div>
-              </div>
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q5">Vegetarian (1) vs Carnivore (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q5" id="q5" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q6">Sedentary (1) vs Athlete (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q6" required/> 
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q7">Literature (1) vs STEM (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5"  class="form-control" id="q7" required/> 
-                </div>
-              </div>
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q6">Sedentary (1) vs Athlete (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q6" id="q6" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q8">Liberal (1) vs Conservative (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q8" required/> 
-                </div>
-              </div>
 
-              <div class="form-group">
-               <label class="col-xs-6 control-label" for="q9">Non-technical (1) vs Technical (5)</label>
-               <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q9" required/> 
-                </div>
-              </div>
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q7">Literature (1) vs STEM (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q7" id="q7" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
 
-              <div class="form-group">
-                <label class="col-xs-6 control-label" for="q10">Rural (1) vs City (5)</label>
-                <div class="col-xs-2">
-                <input type="number" min="1" max="5" class="form-control" id="q10" required/>
-               </div> 
-              </div>
+
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q8">Liberal (1) vs Conservative (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q8" id="q8" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q9">Non-technical (1) vs Technical (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q9" id="q9" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
+
+<div class="form-group">
+        <div class="col-xs-4">
+          <label class="control-label" for="q10">Rural (1) vs City (5)</label>
+        </div>
+        <div class="col-xs-8">
+          <input type="range" name="q10" id="q10" value="3" min="0" max="5"><label>0</label><label class="right" >5</label>
+        </div>
+</div>
+<hr />
+
 
 
               <div class="form-group">

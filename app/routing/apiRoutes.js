@@ -21,19 +21,19 @@ app.post("/data/friends", function(req, res){
 	console.log(friendScores);
   		console.log(friendLength);
 //check to see if all scores are 0-5
-	for (var i = 0; i < friendLength; i++){
+	// for (var i = 0; i < friendLength; i++){
 
-		var score = friendScores[i];
-		score = Number(score);
-		if (score<=5 && score>=0){
-					// if (score){
-				// console.log(score);
-			} else {
-				res.json(false);
-				// res.end();
-			 // res.json(friends);
-		};	
-	}; //end for
+	// 	var score = friendScores[i];
+	// 	score = Number(score);
+	// 	if (score<=5 && score>=0){
+	// 				// if (score){
+	// 			// console.log(score);
+	// 		} else {
+	// 			res.json(false);
+	// 			// res.end();
+	// 		 // res.json(friends);
+	// 	};	
+	// }; //end for
 
 	//cycle through the existing friends json
 	for (var i=0; i<friends.length; i++){

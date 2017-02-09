@@ -24,7 +24,7 @@ app.use(favicon(__dirname + '/../public/favicon.ico'));
 
 app.use('/css', express.static(path.join(__dirname, '/../public/css')))
 
-
+app.use('/static', express.static(path.join(__dirname, 'public')))
 //static routing for express
 
 // app.get("/css", function(req, res){
